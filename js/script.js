@@ -35,6 +35,13 @@ axios.get("https://jsonplaceholder.typicode.com/photos?_limit=6")
                     <div class="textCard">Lorem ipsum</div>
             </div>`
             }
-
+            const card = document.querySelectorAll(".card");
+            console.log(card);
         }
-    })
+    });
+
+
+
+
+
+
