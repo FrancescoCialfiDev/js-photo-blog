@@ -59,6 +59,7 @@ main{
     margin: 10px;
     height: 50%;
     width: calc((100% / 3) - 20px);
+    min-width: 200px;
 }
 
 .imgCard{
