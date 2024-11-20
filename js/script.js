@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 overlay.classList.remove("d-none");
                 let imgDnone = document.querySelector("#overlay img")
                 imgDnone.src = element.src
-
             })
         });
     };
