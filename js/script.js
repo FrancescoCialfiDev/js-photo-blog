@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(containerCard);
 
 
-
     async function generateCard() {
         let indirizzo = [];
         let testo = [];
@@ -49,15 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-
-
-
     createApp();
     async function createApp() {
         await generateCard();
-
-        // ... 
-
         console.log(document.querySelectorAll(".card"))
     }
 
