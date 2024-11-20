@@ -24,6 +24,9 @@ body{
 .wrap{
     flex-wrap: wrap;
 }
+.d-none{
+    display: none !important;
+}
 
 /*------- HEADER -------- */
 header{
@@ -119,20 +122,22 @@ box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 #img6{
     background-color: rgb(255, 145, 0);
 }
+
 .card:hover .pin{
     display: none;
 }
+
 .card:hover {
+    cursor: pointer;
     z-index: 100;
     -webkit-box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
-box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
+    box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
     transform: rotate(15deg);
     transition: 1s;
 }
 
 .overlay{
-    display: none !important;
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.5);
     transition: 1s;
@@ -146,6 +151,7 @@ box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    
 }
 
 .overlay img{
