@@ -11,12 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnAggiungi = document.getElementById("aggiungi")
     let randomStart = Math.floor(Math.random() * 5000);
     let activeCard = null;
+    let counter = 6;
+    let iter = 10;
 
-
-    let baseURL = "https://jsonplaceholder.typicode.com";
-    let endPoint = "/photos?"
-    let param = "_limit=6"
-    const url = `${baseURL}${endPoint}${param}`;
 
 
     async function generateCard() {
@@ -62,6 +59,21 @@ document.addEventListener('DOMContentLoaded', function () {
         btnElimina.addEventListener("click", function () {
             activeCard.closest(".card").remove();
             overlay.classList.add("d-none")
+            counter--
+            if (counter === 0) {
+
+                let intervallo = setInterval(() => {
+                    containerCard.innerHTML = `<h2>Le tue card verranno generate tra ${iter--}</h2>`
+                    if (iter < 0) {
+                        console.log("ciao");
+                        clearInterval(intervallo)
+                        containerCard.innerHTML = "";
+                        generateCard()
+
+                    }
+                }, 1000);
+
+            }
 
         });
 
@@ -79,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <div class="textCard">${element.title}</div>
             </div>`
+                        counter++
+                        console.log(counter);
                     });
 
 
@@ -94,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 });
         });
-
 
     };
 
