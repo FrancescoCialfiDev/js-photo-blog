@@ -56,20 +56,19 @@ document.addEventListener('DOMContentLoaded', function () {
             overlay.classList.add("d-none")
         });
 
+
+
         btnElimina.addEventListener("click", function () {
             activeCard.closest(".card").remove();
             overlay.classList.add("d-none")
             counter--
             if (counter === 0) {
-
                 let intervallo = setInterval(() => {
-                    containerCard.innerHTML = `<h2>Le tue card verranno generate tra ${iter--}</h2>`
+                    containerCard.innerHTML = `<div class"d-flex centerContent"><h2>Le tue card verranno generate tra ${iter--}</h2></div>`
                     if (iter < 0) {
-                        console.log("ciao");
                         clearInterval(intervallo)
                         containerCard.innerHTML = "";
                         generateCard()
-
                     }
                 }, 1000);
 
@@ -90,21 +89,24 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img src="${element.url}" alt="">
                     </div>
                     <div class="textCard">${element.title}</div>
-            </div>`
+                </div>`
                         counter++
                         console.log(counter);
                     });
 
-
-                    const imgNodelist = document.querySelectorAll(".card .imgCard img");
-                    imgNodelist.forEach(element => {
-                        element.addEventListener("click", function () {
-                            overlay.classList.remove("d-none");
-                            let imgDnone = document.querySelector("#overlay img");
-                            imgDnone.src = element.src;
-                            activeCard = element;
+                    addClickToImg()
+                    function addClickToImg() {
+                        const imgNodelist = document.querySelectorAll(".card .imgCard img");
+                        imgNodelist.forEach(element => {
+                            element.addEventListener("click", function () {
+                                overlay.classList.remove("d-none");
+                                let imgDnone = document.querySelector("#overlay img");
+                                imgDnone.src = element.src;
+                                activeCard = element;
+                            });
                         });
-                    });
+
+                    }
 
                 });
         });
