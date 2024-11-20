@@ -33,8 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
         await generateCard();
         const imgNodelist = document.querySelectorAll(".card .imgCard img")
         console.log(imgNodelist) // NodeList Immagini con Indice
-        const cardNodelist = document.querySelectorAll(".card")
+        const cardNodelist = document.querySelectorAll(".card img:last-child")
         console.log(cardNodelist); // Contieni ID Card
+
 
 
         imgNodelist.forEach(element => {
@@ -46,18 +47,20 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         });
 
+        btnchiudi.addEventListener("click", function () {
+            overlay.classList.add("d-none")
+        });
+
+        btnElimina.addEventListener("click", function () {
+            overlay.classList.add("d-none")
+
+        });
+
     };
 
 
 
-    btnchiudi.addEventListener("click", function () {
-        overlay.classList.add("d-none")
-    });
 
-    btnElimina.addEventListener("click", function () {
-        overlay.classList.add("d-none")
-
-    });
 
 
 
