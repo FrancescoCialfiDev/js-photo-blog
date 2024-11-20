@@ -29,30 +29,31 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(res => {
                 res.data.forEach(element => {
                     containerCard.innerHTML += `<div class="card">
-                    <img  class="pin" src="img/pin.svg" alt="">
+                    <img id="${element.id}" class="pin" src="img/pin.svg" alt="">
                         <div class="imgCard">
                             <img src="${element.url}" alt="">
                         </div>
                         <div class="textCard">${element.title[0].toUpperCase() + element.title.slice(1)}</div>
                 </div>`
                 });
+
             });
     }
 
     createApp();
     async function createApp() {
         await generateCard();
-        let nodeList = document.querySelectorAll(".card");
-        console.log(nodeList);
+        let nodeList = document.querySelectorAll(".card .imgCard img");
         nodeList.forEach(element => {
-
             element.addEventListener("click", function () {
-                let overlay = document.getElementById("overlayImg")
-                overlay.classList.remove("d-none")
+                let overlay = document.getElementById("overlay");
+                overlay.classList.remove("d-none");
+                let imgDnone = document.querySelector("#overlay img")
+                imgDnone.src = element.src
 
             })
         });
-    }
+    };
 
 
 });
