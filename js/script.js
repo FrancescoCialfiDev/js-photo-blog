@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnElimina = document.getElementById("elimina")
     const btnChiudi = document.getElementById("chiudi")
     const btnAggiungi = document.getElementById("aggiungi")
+    let randomStart = Math.floor(Math.random() * 5000);
     let activeCard = null;
 
 
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     async function generateCard() {
-        await axios.get(url)
+        await axios.get(`https://jsonplaceholder.typicode.com/photos?_start=${randomStart}&_limit=6`)
             .then(res => {
                 res.data.forEach(element => {
                     containerCard.innerHTML += `<div id="${element.id}" class="card">
@@ -32,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
     };
-
 
     createApp();
     async function createApp() {
@@ -65,30 +65,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
 
+
         btnAggiungi.addEventListener("click", function () {
+            let randomStart = Math.floor(Math.random() * 5000);
             overlay.classList.add("d-none")
-            axios.get("https://jsonplaceholder.typicode.com/photos?_limit=1")
+            axios.get(`https://jsonplaceholder.typicode.com/photos?_start=${randomStart}&_limit=1`)
                 .then(res => {
                     res.data.forEach(element => {
-                        containerCard.innerHTML += `<div id="${element.id}" class="card">
-                    <img class="pin" src="img/pin.svg" alt="">
-                        <div class="imgCard">
-                            <img src="${element.url}" alt="">
-                        </div>
-                        <div class="textCard">${element.title}</div>
-                </div>`
+                        containerCard.innerHTML += `<div class="card">
+                <img class="pin" src="img/pin.svg" alt="">
+                    <div class="imgCard">
+                        <img src="${element.url}" alt="">
+                    </div>
+                    <div class="textCard">${element.title}</div>
+            </div>`
                     });
+
+
+                    const imgNodelist = document.querySelectorAll(".card .imgCard img");
+                    imgNodelist.forEach(element => {
+                        element.addEventListener("click", function () {
+                            overlay.classList.remove("d-none");
+                            let imgDnone = document.querySelector("#overlay img");
+                            imgDnone.src = element.src;
+                            activeCard = element;
+                        });
+                    });
+
                 });
         });
 
+
     };
-
-
-
-
-
-
-
 
 
 
