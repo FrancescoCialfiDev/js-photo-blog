@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (indirizzo.length === 6 && testo.length === 6) {
                     for (let i = 0; i < indirizzo.length; i++) {
                         containerCard.innerHTML += `<div class="card">
-                    <img src="img/pin.svg" alt="">
+                    <img class="pin" src="img/pin.svg" alt="">
                         <div class="imgCard">
                             <img src="${indirizzo[i]}" alt="">
                         </div>

@@ -43,7 +43,7 @@ main{
     background-image: url("../img/cork.png");
 }
 .containerMain{
-    width: 50%;
+    width: 45%;
     height: 80%;
     padding: 10px;
 
@@ -52,6 +52,9 @@ main{
     flex-grow: 1;
 }
 .card{
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
     position: relative;
     top: 0%;
     left: 0%;
@@ -60,18 +63,19 @@ main{
     height: 50%;
     width: calc((100% / 3) - 20px);
     min-width: 200px;
+    
 }
 
 .imgCard{
     padding: 10px;
     height: 75%;
-    border: 1px solid black
+
 }
 .textCard{
     padding-left: 10px;
     padding-top: 5px;
     height: 25%;
-    border: 1px solid black
+
 }
 .bgColored{
     align-items: center;
@@ -115,3 +119,15 @@ main{
 #img6{
     background-color: rgb(255, 145, 0);
 }
+.card:hover .pin{
+    display: none;
+}
+.card:hover {
+    z-index: 100;
+    -webkit-box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 14px 19px 18px 0px rgba(0,0,0,0.75);
+    transform: rotate(15deg);
+    transition: 1s;
+}
+
