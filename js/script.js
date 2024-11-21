@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const containerCard = document.querySelector(".containerCard")
 
     // Variabili Button Function
-    const btnElimina = document.getElementById("elimina")
-    const btnChiudi = document.getElementById("chiudi")
-    const btnAggiungi = document.getElementById("aggiungi")
+    const btnDelete = document.getElementById("delete")
+    const btnClose = document.getElementById("close")
+    const btnAdd = document.getElementById("add")
     let randomStart = Math.floor(Math.random() * 5000);
     let activeCard = null;
     let counter = 6;
@@ -52,13 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         });
 
-        btnChiudi.addEventListener("click", function () {
+        btnClose.addEventListener("click", function () {
             overlay.classList.add("d-none")
         });
 
 
 
-        btnElimina.addEventListener("click", function () {
+        btnDelete.addEventListener("click", function () {
             activeCard.closest(".card").remove();
             overlay.classList.add("d-none")
             counter--
@@ -71,13 +71,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         generateCard()
                     }
                 }, 1000);
-
             }
 
         });
 
 
-        btnAggiungi.addEventListener("click", function () {
+        btnAdd.addEventListener("click", function () {
             let randomStart = Math.floor(Math.random() * 5000);
             overlay.classList.add("d-none")
             axios.get(`https://jsonplaceholder.typicode.com/photos?_start=${randomStart}&_limit=1`)
@@ -116,3 +115,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
+

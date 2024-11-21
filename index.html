@@ -17,19 +17,11 @@
 </head>
 
 <body>
-    <div id="overlay" class="overlay d-none">
-        <div class="bottoni">
-            <button id="chiudi">Chiudi</button>
-            <button id="aggiungi">Aggiungi</button>
-            <button id="elimina">Elimina</button>
-        </div>
-        <img src="img/cork.png" alt="">
-    </div>
     <header class="d-flex centerContent">
-        <h1>ESTATE 2024</h1>
+        <h1>CARD GENERATOR</h1>
     </header>
-    <main class="d-flex centerContent">
 
+    <main class="d-flex centerContent">
         <div class="containerMain d-flex">
             <div class="containerCard d-flex wrap centerContent">
 
@@ -37,7 +29,13 @@
         </div>
     </main>
 
-
+    <div id="overlay" class="overlay d-none">
+        <div class="bottoni">
+            <button type="button" id="close" name="btnClose">Close</button>
+            <button type="button" id="add" name="btnAdd">Add</button>
+            <button type="button" id="delete" name="btnDelete">Delete</button>
+        </div>
+    </div>
 </body>
 
 </html>
